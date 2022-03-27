@@ -1,0 +1,12 @@
+# https://www.opensourceforu.com/2016/04/use-mahout-for-clustering-big-data/
+
+hadoop fs - put /home/hduser/news_article /news_article
+Source Destination
+
+mahout seqdirectory -i /news_article -o /news_article_seqdir_output -ow
+
+mahout seq2sparse -i /news_article_seqdir_output -o / news_article_sparse_output
+
+mahout kmeans -i /news_article_sparse_output/tfidf-vectors -c /news_kmeans_cluster -o /news_kmeans_cluster_output -x 2 -ow -k 50 -dm
+
+mahout clusterdump -i /news_kmeans_cluster_output/clusters-1-final -o /home/hduser/news_kmeans.txt -p /news_kmeans_cluster_output/clusteredPoints -n 20

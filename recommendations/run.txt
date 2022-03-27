@@ -1,0 +1,2 @@
+sudo javac -cp .:$MAHOUT_HOME/*:$MAHOUT_HOME/lib/* Recommender.java
+sudo java -cp .:$MAHOUT_HOME/*:$MAHOUT_HOME/lib/* Recommender

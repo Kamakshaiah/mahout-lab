@@ -1,0 +1,6 @@
+# https://grouplens.org/datasets/movielens/
+# hadoop fs -rm -r /user/hadoop/temp/preparePreferenceMatrix
+
+mahout recommenditembased -s SIMILARITY_LOGLIKELIHOOD -i hdfs://localhost:9000/mahout_data/ratings.csv -o hdfs://localhost:9000/ratings_test/ --numRecommendations 5
+
+hadoop fs -cat /ratings_test/part* | head -n 5
